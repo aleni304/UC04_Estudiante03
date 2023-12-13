@@ -1,5 +1,36 @@
+<!-- templates/listado_cursos.html -->
+
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h1>Listado de cursos</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Hour</th>
+                    <th>Credits</th>
+                    <th>State</th>
+                    <th>Opcion</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for c in curso %}
+                <tr>
+                    <td>{{ c.idcourse }}</td>
+                    <td>{{ c.code }}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.hour }}</td>
+                    <td>{{ c.credits }}</td>
+                    <td>{{ c.state }}</td>
+                    <td><a href="{% url 'eliminar_curso' idcourse=c.idcourse %}">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
 {% endblock %}
+
