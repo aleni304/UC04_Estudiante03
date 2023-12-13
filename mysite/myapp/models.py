@@ -8,3 +8,9 @@ class Course(models.Model):
     credits = models.PositiveSmallIntegerField()
     state = models.CharField(max_length=1)
     
+class Career(models.Model):
+    idcareer = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    shortname = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='myapp/careers/')
+    state = models.CharField(max_length=1)
